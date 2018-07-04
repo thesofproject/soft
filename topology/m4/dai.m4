@@ -7,7 +7,7 @@ define(`N_DAI', DAI_NAME)
 define(`N_DAI_OUT', DAI_NAME`.OUT')
 define(`N_DAI_IN', DAI_NAME`.IN')
 
-dnl W_DAI_OUT(type, index, dai_link, format, periods_sink, periods_source, preload)
+dnl W_DAI_OUT(type, index, dai_link, format, periods_sink, periods_source, preload, bespoke_data)
 define(`W_DAI_OUT',
 `SectionVendorTuples."'N_DAI_OUT($2)`_tuples_w_comp" {'
 `	tokens "sof_comp_tokens"'
@@ -47,6 +47,7 @@ define(`W_DAI_OUT',
 `SectionData."'N_DAI_OUT($2)`_data_comp_str" {'
 `	tuples "'N_DAI_OUT($2)`_tuples_comp_str"'
 `}'
+$8
 `SectionWidget."'N_DAI_OUT`" {'
 `	index "'PIPELINE_ID`"'
 `	type "dai_in"'
@@ -57,6 +58,7 @@ define(`W_DAI_OUT',
 `		"'N_DAI_OUT($2)`_data_w_comp"'
 `		"'N_DAI_OUT($2)`_data_str"'
 `		"'N_DAI_OUT($2)`_data_comp_str"'
+`ifelse($8, `', `',`		"'N_DAI_OUT($2)`_data_bespoke_w"')'
 `	]'
 `}')
 
@@ -159,8 +161,8 @@ define(`DAI_CONFIG',
 
 dnl DAI_ADD(pipeline,
 dnl     pipe id, dai type, dai_index, dai_be,
-dnl     buffer, periods, format,
-dnl     frames, deadline, priority, core)
+dnl     buffer, periods, format,frames, deadline,
+dnl     priority, core, bespoken_config)
 define(`DAI_ADD',
 `undefine(`PIPELINE_ID')'
 `undefine(`DAI_TYPE')'
@@ -173,6 +175,7 @@ define(`DAI_ADD',
 `undefine(`SCHEDULE_DEADLINE')'
 `undefine(`SCHEDULE_PRIORITY')'
 `undefine(`SCHEDULE_CORE')'
+`undefine(`DAI_BESPOKE_CONFIG')'
 `define(`PIPELINE_ID', $2)'
 `define(`DAI_TYPE', STR($3))'
 `define(`DAI_INDEX', STR($4))'
@@ -185,6 +188,7 @@ define(`DAI_ADD',
 `define(`SCHEDULE_DEADLINE', $10)'
 `define(`SCHEDULE_PRIORITY', $11)'
 `define(`SCHEDULE_CORE', $12)'
+`define(`DAI_BESPOKE_CONFIG', $13)'
 `include($1)'
 )
 

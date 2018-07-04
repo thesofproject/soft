@@ -66,7 +66,8 @@ PIPELINE_PCM_DAI_ADD(sof/pipe-TEST_PIPE_NAME-capture.m4,
 DAI_ADD(sof/pipe-dai-playback.m4,
 	1, TEST_DAI_TYPE, TEST_DAI_PORT, TEST_DAI_LINK_NAME,
 	PIPELINE_SOURCE_1, 2, TEST_DAI_FORMAT,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0,
+	SSP_BESPOKE_DATA(TEST_DAI_TYPE, TEST_DAI_PORT, 1))
 
 # capture DAI is SSP TEST_DAI_PORT using 2 periods
 # Buffers use s24le format, with 48 frame per 1000us on core 0 with priority 0
