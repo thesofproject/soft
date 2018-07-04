@@ -116,7 +116,8 @@ PIPELINE_PCM_DAI_ADD(sof/pipe-volume-capture.m4,
 DAI_ADD(sof/pipe-dai-playback.m4,
 	1, SSP, 0, NoCodec-0,
 	PIPELINE_SOURCE_1, 2, s16le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0,
+	SSP_BESPOKE_DATA(SSP, 0, 1))
 
 # capture DAI is SSP0 using 2 periods
 # Buffers use s16le format, with 48 frame per 1000us on core 0 with priority 0
@@ -130,7 +131,8 @@ DAI_ADD(sof/pipe-dai-capture.m4,
 DAI_ADD(sof/pipe-dai-playback.m4,
 	3, SSP, 1, NoCodec-1,
 	PIPELINE_SOURCE_3, 2, s16le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0,
+	SSP_BESPOKE_DATA(SSP, 1, 1))
 
 # capture DAI is SSP1 using 2 periods
 # Buffers use s16le format, with 48 frame per 1000us on core 0 with priority 0
@@ -144,7 +146,8 @@ DAI_ADD(sof/pipe-dai-capture.m4,
 DAI_ADD(sof/pipe-dai-playback.m4,
 	5, SSP, 2, NoCodec-2,
 	PIPELINE_SOURCE_5, 2, s16le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0,
+	SSP_BESPOKE_DATA(SSP, 2, 1))
 
 # capture DAI is SSP2 using 2 periods
 # Buffers use s16le format, with 48 frame per 1000us on core 0 with priority 0
@@ -158,7 +161,8 @@ DAI_ADD(sof/pipe-dai-capture.m4,
 DAI_ADD(sof/pipe-dai-playback.m4,
 	7, SSP, 3, NoCodec-3,
 	PIPELINE_SOURCE_7, 2, s16le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0,
+	SSP_BESPOKE_DATA(SSP, 3, 1))
 
 # capture DAI is SSP3 using 2 periods
 # Buffers use s16le format, with 48 frame per 1000us on core 0 with priority 0
@@ -172,7 +176,8 @@ DAI_ADD(sof/pipe-dai-capture.m4,
 #DAI_ADD(sof/pipe-dai-playback.m4,
 #	9, SSP, 4, NoCodec,
 #	PIPELINE_SOURCE_9, 2, s16le,
-#	48, 1000, 0, 0)
+#	48, 1000, 0, 0,
+#	SSP_BESPOKE_DATA(SSP, 4, 1))
 
 # capture DAI is SSP4 using 2 periods
 # Buffers use s16le format, with 48 frame per 1000us on core 0 with priority 0
@@ -186,7 +191,8 @@ DAI_ADD(sof/pipe-dai-capture.m4,
 #DAI_ADD(sof/pipe-dai-playback.m4,
 #	11, SSP, 5, NoCodec,
 #	PIPELINE_SOURCE_11, 2, s16le,
-#	48, 1000, 0, 0)
+#	48, 1000, 0, 0,
+#	SSP_BESPOKE_DATA(SSP, 5, 1))
 
 # capture DAI is SSP5 using 2 periods
 # Buffers use s16le format, with 48 frame per 1000us on core 0 with priority 0

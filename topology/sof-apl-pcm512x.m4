@@ -61,7 +61,8 @@ DAI_ADD(sof/pipe-dai-capture.m4,
 DAI_ADD(sof/pipe-dai-playback.m4,
 	2, SSP, 5, SSP5-Codec,
 	PIPELINE_SOURCE_2, 2, s16le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0,
+	SSP_BESPOKE_DATA(SSP, 5, 1))
 
 # capture DAI is SSP5 using 2 periods
 # Buffers use s16le format, with 48 frame per 1000us on core 0 with priority 0

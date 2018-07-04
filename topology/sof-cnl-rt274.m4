@@ -48,7 +48,8 @@ PIPELINE_PCM_DAI_ADD(sof/pipe-volume-capture.m4,
 DAI_ADD(sof/pipe-dai-playback.m4,
 	1, SSP, 0, SSP0-Codec,
 	PIPELINE_SOURCE_1, 2, s24le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0,
+	SSP_BESPOKE_DATA(SSP, 0, 1))
 
 # capture DAI is SSP0 using 2 periods
 # Buffers use s24le format, with 48 frame per 1000us on core 0 with priority 0

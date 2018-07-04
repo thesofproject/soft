@@ -43,4 +43,18 @@ define(`SSP_CONFIG_DATA',
 `}'
 )
 
+dnl SSP_BESPOKE_DATA(type, idx, value)
+dnl value is optional
+define(`SSP_BESPOKE_DATA',
+`SectionVendorTuples."$1$2.OUT_tuples_bespoke_w" {'
+`	tokens "sof_dai_tokens"'
+`	tuples."word" {'
+`		SOF_TKN_DAI_BESPOKE_CONFIG'	ifelse($3, `', "0", STR($3))
+`	}'
+`}'
+`SectionData."$1$2.OUT_data_bespoke_w" {'
+`	tuples "$1$2.OUT_tuples_bespoke_w"'
+`}'
+)
+
 divert(0)dnl
