@@ -18,11 +18,13 @@ define(`W_TONE',
 `SectionVendorTuples."'N_TONE($1)`_tone_tuples_w" {'
 `	tokens "sof_tone_tokens"'
 `	tuples."word" {'
-`		SOF_TKN_TONE_SAMPLE_RATE'		ifdef(TONE_SAMPLE_RATE, STR(TONE_SAMPLE_RATE), "48000")
+`		SOF_TKN_TONE_SAMPLE_RATE'		ifdef(`TONE_SAMPLE_RATE', STR(TONE_SAMPLE_RATE), "48000")
 `	}'
 `}'
 `SectionData."'N_TONE($1)`_data_w" {'
 `	tuples "'N_TONE($1)`_tuples_w"'
+`}'
+`SectionData."'N_TONE($1)`_tone_data_w" {'
 `	tuples "'N_TONE($1)`_tone_tuples_w"'
 `}'
 `SectionVendorTuples."'N_TONE($1)`_tuples_str" {'
@@ -31,8 +33,14 @@ define(`W_TONE',
 `		SOF_TKN_COMP_FORMAT'	STR($2)
 `	}'
 `}'
+`SectionVendorTuples."'N_TONE($1)`_vfe_tuples_str" {'
+VFE_LINK(VFE_LINK_NAME, STR(`TEST_VFE_CPU_DAI_NAME'), VFE_PLATFORM_NAME)
+`}'
 `SectionData."'N_TONE($1)`_data_str" {'
 `	tuples "'N_TONE($1)`_tuples_str"'
+`}'
+`SectionData."'N_TONE($1)`_vfe_data_str" {'
+`	tuples "'N_TONE($1)`_vfe_tuples_str"'
 `}'
 `SectionWidget."'N_TONE($1)`" {'
 `	index "'PIPELINE_ID`"'
@@ -40,7 +48,9 @@ define(`W_TONE',
 `	no_pm "true"'
 `	data ['
 `		"'N_TONE($1)`_data_w"'
+`		"'N_TONE($1)`_tone_data_w"'
 `		"'N_TONE($1)`_data_str"'
+`		"'N_TONE($1)`_vfe_data_str"'
 `	]'
 `	mixer ['
 		$6
