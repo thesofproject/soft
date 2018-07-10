@@ -122,6 +122,33 @@ function simple_test {
 	done
 }
 
+function tone_test {
+	echo ${14}
+	TESTS=("${!15}")
+	for i in ${TESTS[@]}
+	do
+		TFILE="$i-ssp$6-mclk-${13}-${12}-$2-$4-$7-48k-$((${11} / 1000))k-$1"
+		echo "M4 pre-processing test $i -> ${TFILE}"
+		m4 ${M4_FLAGS} \
+			-DTEST_PIPE_NAME="$2" \
+			-DTEST_DAI_LINK_NAME="$3" \
+			-DTEST_DAI_PORT=$6 \
+			-DTEST_DAI_FORMAT=$7 \
+			-DTEST_PIPE_FORMAT=$4 \
+			-DTEST_SSP_BCLK=${10} \
+			-DTEST_SSP_MCLK=${11} \
+			-DTEST_SSP_PHY_BITS=$8 \
+			-DTEST_SSP_DATA_BITS=$9 \
+			-DTEST_SSP_MODE=${12} \
+			-DTEST_SSP_MCLK_ID=${13} \
+			-DTEST_VFE_CPU_DAI_NAME="${14}" \
+			-DTEST_DAI_TYPE=$5 \
+			$i.m4 > ${TFILE}.conf
+		echo "Compiling test $i -> ${TFILE}.tplg"
+		alsatplg -v 1 -c ${TFILE}.conf -o ${TFILE}.tplg
+	done
+}
+
 echo "Preparing topology build input..."
 
 # Pre-process the simple tests
@@ -213,10 +240,10 @@ simple_test nocodec volume "NoCodec-2" s24le SSP 2 s16le 25 16 2400000 24000000 
 simple_test nocodec src "NoCodec-4" s24le SSP 4 s24le 25 24 2400000 24000000 I2S 0 SIMPLE_TESTS[@]
 
 # Tone test: Tone component only supports s32le currently
-simple_test codec tone "SSP2-Codec" s32le SSP 2 s16le 20 16 1920000 19200000 I2S 0 TONE_TEST[@]
+tone_test codec tone "SSP2-Codec" s32le SSP 2 s16le 20 16 1920000 19200000 I2S 0 "ssp2-port" TONE_TEST[@]
 #Tone Test for APL
-simple_test codec tone "SSP5-Codec" s32le SSP 5 s24le 32 24 3072000 24576000 I2S 0 TONE_TEST[@]
-simple_test codec tone "SSP5-Codec" s32le SSP 5 s32le 32 32 3072000 24576000 I2S 0 TONE_TEST[@]
+tone_test codec tone "SSP5-Codec" s32le SSP 5 s24le 32 24 3072000 24576000 I2S 0 "SSP5 Pin" TONE_TEST[@]
+tone_test codec tone "SSP5-Codec" s32le SSP 5 s32le 32 32 3072000 24576000 I2S 0 "SSP5 Pin" TONE_TEST[@]
 
 # DMIC Test Topologies for APL/GLK
 DMIC_PDM_CONFIGS=(MONO_PDM0_MICA MONO_PDM0_MICB STEREO_PDM0 STEREO_PDM1 FOUR_CH_PDM0_PDM1)
