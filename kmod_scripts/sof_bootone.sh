@@ -3,7 +3,7 @@
 dmesg -C
 ./sof_remove.sh
 ./sof_insert.sh
-sleep 1
+sleep 6
 
 unset FW_BOOT
 unset ERROR
