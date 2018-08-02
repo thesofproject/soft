@@ -19,6 +19,7 @@ DEPS = \
 MACHINES = \
 	sof-cht-nocodec.tplg \
 	sof-cht-max98090.tplg \
+	sof-apl-hda.tplg \
 	sof-apl-nocodec.tplg \
 	sof-byt-nocodec.tplg \
 	sof-bdw-rt286.tplg \
@@ -53,6 +54,7 @@ clean-local:
 EXTRA_DIST = \
 	sof-cht-nocodec.m4 \
 	sof-cht-max98090.m4 \
+	sof-apl-hda.m4 \
 	sof-apl-nocodec.m4 \
 	sof-byt-nocodec.m4 \
 	sof-bdw-rt286.m4 \
