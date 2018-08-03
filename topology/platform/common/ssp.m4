@@ -26,8 +26,8 @@ define(`SSP_CONFIG',
 $6
 )
 
-dnl SSP_CONFIG_DATA(type, idx, valid bits, mclk_id)
-dnl mclk_id is optional
+dnl SSP_CONFIG_DATA(type, idx, valid bits, mclk_id, quirks, frame_pulse_width)
+dnl mclk_id quirks frame_pulse_width are optional
 define(`SSP_CONFIG_DATA',
 `SectionVendorTuples."'N_DAI_CONFIG($1$2)`_tuples" {'
 `	tokens "sof_ssp_tokens"'
@@ -36,6 +36,12 @@ define(`SSP_CONFIG_DATA',
 `	}'
 `	tuples."short" {'
 `		SOF_TKN_INTEL_SSP_MCLK_ID'	ifelse($4, `', "0", STR($4))
+`	}'
+`	tuples."word" {'
+`		SOF_TKN_INTEL_SSP_QUIRKS'	ifelse($5, `', "0", STR($5))
+`	}'
+`	tuples."short" {'
+`		SOF_TKN_INTEL_SSP_FRAME_PULSE_WIDTH'	ifelse($6, `', "0", STR($6))
 `	}'
 `}'
 `SectionData."'N_DAI_CONFIG($1$2)`_data" {'

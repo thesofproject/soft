@@ -56,6 +56,8 @@ SectionVendorTokens."sof_ssp_tokens" {
 	SOF_TKN_INTEL_SSP_FS_KEEP_ACTIVE	"502"
 	SOF_TKN_INTEL_SSP_MCLK_ID		"503"
 	SOF_TKN_INTEL_SSP_SAMPLE_BITS		"504"
+	SOF_TKN_INTEL_SSP_FRAME_PULSE_WIDTH	"505"
+	SOF_TKN_INTEL_SSP_QUIRKS			"506"
 }
 
 SectionVendorTokens."sof_dmic_tokens" {

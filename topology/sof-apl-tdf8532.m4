@@ -183,6 +183,7 @@ DAI_CONFIG(SSP, 0, 0, SSP0-Codec,
 		      SSP_CLOCK(bclk, 1536000, codec_slave),
 		      SSP_CLOCK(fsync, 48000, codec_slave),
 		      SSP_TDM(2, 16, 3, 3),
+		      dnl SSP_CONFIG_DATA(type, idx, valid bits, mclk_id, quirks, frame_pulse_width)
 		      SSP_CONFIG_DATA(SSP, 0, 16)))
 
 DAI_CONFIG(SSP, 1, 1, SSP1-Codec,
