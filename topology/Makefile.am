@@ -37,6 +37,7 @@ MACHINES = \
 	sof-apl-wm8804.tplg \
 	sof-apl-da7219.tplg \
 	sof-glk-da7219.tplg \
+	sof-yorp.tplg \
 	sof-icl-nocodec.tplg \
 	sof-apl-eq-pcm512x.tplg
 
@@ -76,5 +77,6 @@ EXTRA_DIST = \
 	sof-apl-wm8804.m4 \
 	sof-apl-da7219.m4 \
 	sof-glk-da7219.m4 \
+	sof-yorp.m4 \
 	sof-icl-nocodec.m4 \
 	sof-apl-eq-pcm512x.m4
