@@ -33,25 +33,25 @@ include(`platform/intel/byt.m4')
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-low-latency-playback.m4,
 	1, 0, 2, s32le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0, 48000, 48000)
 
 # Low Latency capture pipeline 2 on PCM 0 using max 2 channels of s32le.
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-low-latency-capture.m4,
 	2, 0, 2, s32le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0, 48000, 48000)
 
 # PCM Media Playback pipeline 3 on PCM 1 using max 2 channels of s32le.
 # Schedule 192 frames per 4000us deadline on core 0 with priority 1
 PIPELINE_PCM_ADD(sof/pipe-pcm-media.m4,
 	3, 1, 2, s32le,
-	192, 4000, 1, 0)
+	192, 4000, 1, 0, 8000, 192000)
 
 # Tone Playback pipeline 5 using max 2 channels of s32le.
 # Schedule 192 frames per 4000us deadline on core 0 with priority 2
 PIPELINE_ADD(sof/pipe-tone.m4,
 	5, 2, s32le,
-	192, 4000, 2, 0)
+	192, 4000, 2, 0, 48000, 48000)
 
 # Connect pipelines together
 SectionGraph."pipe-byt-da7212" {
