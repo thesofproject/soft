@@ -23,11 +23,13 @@ include(`platform/intel/bxt.m4')
 # PCM0 ----> volume -----> SSP5 (pcm512x)
 #
 
+DEBUG_START
+
 # Low Latency playback pipeline 1 on PCM 0 using max 2 channels of s32le.
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-eq-volume-playback.m4,
 	1, 0, 2, s32le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0, 48000, 48000)
 
 #
 # DAIs configuration
@@ -53,3 +55,5 @@ DAI_CONFIG(SSP, 5, 0, SSP5-Codec,
 		SSP_CLOCK(fsync, 48000, codec_slave),
 		SSP_TDM(2, 32, 3, 3),
 		SSP_CONFIG_DATA(SSP, 5, 24)))
+
+DEBUG_END

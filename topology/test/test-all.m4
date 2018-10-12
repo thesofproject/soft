@@ -30,6 +30,8 @@ include(`byt.m4')
 # TEST_SSP_PHY_BITS - SSP physical slot size
 # TEST_SSP_DATA_BITS - SSP data slot size
 # TEST_SSP_MODE - SSP mode e.g. I2S, LEFT_J, DSP_A and DSP_B
+# TEST_PCM_MIN_RATE - min samplerate pcm/pipeline supports
+# TEST_PCM_MAX_RATE - max samplerate pcm/pipeline supports
 #
 
 #
@@ -44,7 +46,8 @@ include(`byt.m4')
 PIPELINE_PCM_DAI_ADD(sof/pipe-TEST_PIPE_NAME-playback.m4,
 	1, 0, 2, TEST_PIPE_FORMAT,
 	48, 1000, 0, 0,
-	TEST_DAI_TYPE, TEST_DAI_PORT, TEST_DAI_FORMAT, 2)
+	TEST_DAI_TYPE, TEST_DAI_PORT, TEST_DAI_FORMAT, 2,
+	TEST_PCM_MIN_RATE, TEST_PCM_MAX_RATE)
 
 
 # Passthrough playback pipeline 2 on PCM 0 using max 2 channels of s24le.
@@ -53,7 +56,8 @@ PIPELINE_PCM_DAI_ADD(sof/pipe-TEST_PIPE_NAME-playback.m4,
 PIPELINE_PCM_DAI_ADD(sof/pipe-TEST_PIPE_NAME-capture.m4,
 	2, 0, 2, TEST_PIPE_FORMAT,
 	48, 1000, 0, 0,
-	TEST_DAI_TYPE, TEST_DAI_PORT, TEST_DAI_FORMAT, 2)
+	TEST_DAI_TYPE, TEST_DAI_PORT, TEST_DAI_FORMAT, 2,
+	TEST_PCM_MIN_RATE, TEST_PCM_MAX_RATE)
 
 #
 # DAI configuration

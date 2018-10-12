@@ -33,19 +33,19 @@ dnl     frames, deadline, priority, core)
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-volume-playback.m4,
 	1, 0, 2, s16le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0, 48000, 48000)
 
 # Low Latency playback pipeline 2 on PCM 1 using max 2 channels of s16le.
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-volume-playback.m4,
 	2, 1, 2, s16le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0, 48000, 48000)
 
 # Low Latency playback pipeline 3 on PCM 2 using max 2 channels of s16le.
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-volume-playback.m4,
 	3, 2, 2, s16le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0, 48000, 48000)
 
 #
 # DAIs configuration

@@ -43,6 +43,8 @@ define(`PIPELINE_PCM_ADD',
 `undefine(`SCHEDULE_DEADLINE')'
 `undefine(`SCHEDULE_PRIORITY')'
 `undefine(`SCHEDULE_CORE')'
+`undefine(`PCM_MIN_RATE')'
+`undefine(`PCM_MAX_RATE')'
 `define(`PIPELINE_ID', $2)'
 `define(`PCM_ID', $3)'
 `define(`PIPELINE_CHANNELS', $4)'
@@ -51,6 +53,8 @@ define(`PIPELINE_PCM_ADD',
 `define(`SCHEDULE_DEADLINE', $7)'
 `define(`SCHEDULE_PRIORITY', $8)'
 `define(`SCHEDULE_CORE', $9)'
+`define(`PCM_MIN_RATE', $10)'
+`define(`PCM_MAX_RATE', $11)'
 `include($1)'
 `DEBUG_PCM_ADD($1, $3)'
 )
@@ -72,6 +76,8 @@ define(`PIPELINE_PCM_DAI_ADD',
 `undefine(`DAI_INDEX')'
 `undefine(`DAI_FORMAT')'
 `undefine(`DAI_PERIODS')'
+`undefine(`PCM_MIN_RATE')'
+`undefine(`PCM_MAX_RATE')'
 `define(`PIPELINE_ID', $2)'
 `define(`PCM_ID', $3)'
 `define(`PIPELINE_CHANNELS', $4)'
@@ -85,6 +91,8 @@ define(`PIPELINE_PCM_DAI_ADD',
 `define(`DAI_FORMAT', $12)'
 `define(`DAI_PERIODS', $13)'
 `define(`DAI_NAME', $10$11)'
+`define(`PCM_MIN_RATE', $14)'
+`define(`PCM_MAX_RATE', $15)'
 `include($1)'
 )
 
@@ -99,6 +107,8 @@ define(`PIPELINE_ADD',
 `undefine(`SCHEDULE_DEADLINE')'
 `undefine(`SCHEDULE_PRIORITY')'
 `undefine(`SCHEDULE_CORE')'
+`undefine(`PCM_MIN_RATE')'
+`undefine(`PCM_MAX_RATE')'
 `define(`PIPELINE_ID', $2)'
 `define(`PIPELINE_CHANNELS', $3)'
 `define(`PIPELINE_FORMAT', $4)'
@@ -106,6 +116,8 @@ define(`PIPELINE_ADD',
 `define(`SCHEDULE_DEADLINE', $6)'
 `define(`SCHEDULE_PRIORITY', $7)'
 `define(`SCHEDULE_CORE', $8)'
+`define(`PCM_MIN_RATE', $9)'
+`define(`PCM_MAX_RATE', $10)'
 `include($1)'
 )
 

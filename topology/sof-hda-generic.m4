@@ -31,43 +31,43 @@ include(`platform/intel/bxt.m4')
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-volume-playback.m4,
 	1, 0, 2, s32le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0, 48000, 48000)
 
 # Low Latency capture pipeline 2 on PCM 0 using max 2 channels of s32le.
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-volume-capture.m4,
 	2, 0, 2, s32le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0, 48000, 48000)
 
 # Low Latency playback pipeline 3 on PCM 1 using max 2 channels of s32le.
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-volume-playback.m4,
 	3, 1, 2, s32le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0, 48000, 48000)
 
 # Low Latency capture pipeline 4 on PCM 1 using max 2 channels of s32le.
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-volume-capture.m4,
 	4, 1, 2, s32le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0, 48000, 48000)
 
 # Low Latency playback pipeline 7 on PCM 3 using max 2 channels of s32le.
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-volume-playback.m4,
         7, 3, 2, s32le,
-        48, 1000, 0, 0)
+        48, 1000, 0, 0, 48000, 48000)
 
 # Low Latency playback pipeline 8 on PCM 4 using max 2 channels of s32le.
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-volume-playback.m4,
         8, 4, 2, s32le,
-        48, 1000, 0, 0)
+        48, 1000, 0, 0, 48000, 48000)
 
 # Low Latency playback pipeline 9 on PCM 5 using max 2 channels of s32le.
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-volume-playback.m4,
         9, 5, 2, s32le,
-        48, 1000, 0, 0)
+        48, 1000, 0, 0, 48000, 48000)
 
 #
 # DAIs configuration

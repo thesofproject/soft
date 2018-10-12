@@ -27,7 +27,7 @@ include(`platform/intel/bxt.m4')
 # Schedule 48 frames per 1000us deadline on core 0 with priority 0
 PIPELINE_PCM_ADD(sof/pipe-volume-playback.m4,
 	1, 0, 2, s32le,
-	48, 1000, 0, 0)
+	48, 1000, 0, 0, 48000, 48000)
 
 #
 # DAIs configuration
