@@ -1,0 +1,4 @@
+[submodule "sof"]
+	path = sof
+	url = https://github.com/thesofproject/sof.git
+	branch = master

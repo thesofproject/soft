@@ -9,6 +9,7 @@ Building and Installing
 
 ./autogen.sh (only needed first time)
 ./configure
+git submodule update --init --recursive
 make
 make install
 
